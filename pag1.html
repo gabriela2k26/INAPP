@@ -141,47 +141,76 @@ body {
     fill: rgb(0, 0, 0); /* Cambia a negro cuando está seleccionado */
 }
     </style>
+   <script>
+    // Objeto de traducciones
+    const translations = {
+        english: {
+            title: "WELCOME",
+            subtitle: "Select your language",
+            buttonText: ["English", "Spanish", "French"]
+        },
+        spanish: {
+            title: "BIENVENIDO",
+            subtitle: "Selecciona tu idioma",
+            buttonText: ["Inglés", "Español", "Francés"]
+        },
+        french: {
+            title: "BIENVENUE",
+            subtitle: "Sélectionnez votre langue",
+            buttonText: ["Anglais", "Espagnol", "Français"]
+        }
+    };
+
+    // Función para cambiar el idioma
+    function changeLanguage(lang) {
+        document.querySelector('h1').innerText = translations[lang].title;
+        document.querySelector('p').innerText = translations[lang].subtitle;
+
+        // Actualizar el texto de los botones
+        const buttonLabels = document.querySelectorAll('.radio-tile-label');
+        buttonLabels[0].innerText = translations[lang].buttonText[0];
+        buttonLabels[1].innerText = translations[lang].buttonText[1];
+        buttonLabels[2].innerText = translations[lang].buttonText[2];
+
+        // Desmarcar todos los botones
+        const radioButtons = document.querySelectorAll('.radio-button');
+        radioButtons.forEach(button => button.checked = false);
+
+        // Marcar el botón correspondiente
+        document.getElementById(lang).checked = true;
+    }
+</script>
 </head>
 <body>
-    <h1 class="animate__animated animate__fadeInDown" style=" font-family: 'mifuente1';">WELCOME</h1>
-    <p class="animate__animated animate__fadeInDown" style=" font-family: 'mifuente1';  margin-top: -10px;">Select your language</p>
+<h1 class="animate__animated animate__fadeInDown" style="font-family: 'mifuente1';">WELCOME</h1>
+<p class="animate__animated animate__fadeInDown" style="margin-top: -10px; font-family: 'mifuente1';">Select your language</p>
 
 <div class="animate__animated animate__fadeIn" class="container">
-  <div class="radio-tile-group">
-    <div class="input-container">
-      <input id="walk" class="radio-button" type="radio" name="radio">
-      <div class="radio-tile">
-        <div class="icon walk-icon">
-         
-           
+    <div class="radio-tile-group">
+        <div class="input-container">
+            <input id="english" class="radio-button" type="radio" name="radio" onclick="changeLanguage('english')" checked>
+            <div class="radio-tile">
+                <div class="icon walk-icon"></div>
+                <label for="english" class="radio-tile-label">English</label>
+            </div>
         </div>
-        <label for="walk" class="radio-tile-label">English</label>
-      </div>
-    </div>
 
-    <div class="input-container">
-      <input id="bike" class="radio-button" type="radio" name="radio">
-      <div class="radio-tile">
-        <div class="icon bike-icon">
-         
-           
+        <div class="input-container">
+            <input id="spanish" class="radio-button" type="radio" name="radio" onclick="changeLanguage('spanish')">
+            <div class="radio-tile">
+                <div class="icon bike-icon"></div>
+                <label for="spanish" class="radio-tile-label">Spanish</label>
+            </div>
         </div>
-        <label for="bike" class="radio-tile-label">Spanish</label>
-      </div>
-    </div>
 
-    <div class="input-container">
-      <input id="drive" class="radio-button" type="radio" name="radio">
-      <div class="radio-tile">
-        <div class="icon car-icon">
-          
-         
+        <div class="input-container">
+            <input id="french" class="radio-button" type="radio" name="radio" onclick="changeLanguage('french')">
+            <div class="radio-tile">
+                <div class="icon car-icon"></div>
+                <label for="french" class="radio-tile-label">French</label>
+            </div>
         </div>
-        <label for="drive" class="radio-tile-label">French</label>
-      </div>
     </div>
-  </div>
 </div>
-
 </body>
 </html>
