@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>INNOVA NEXUS APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> <!-- Incluir Animate.css -->
+    <style>
+        body {
+            background: radial-gradient(circle, #252525 0%, #1a1a1a 100%); /* Degradado circular de gris oscuro a negro */
+            color: white; /* Establece el color del texto a blanco para que sea visible */
+            font-family: Arial, sans-serif; /* Establece una fuente básica */
+            display: flex; /* Utiliza flexbox para centrar el contenido */
+            flex-direction: column; /* Cambia la dirección a columna para apilar elementos */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+            height: 100vh; /* Ocupa toda la altura de la ventana */
+            margin: 0; /* Elimina el margen por defecto */
+            opacity: 1; /* Inicialmente visible */
+            transition: opacity 1s; /* Transición suave para el desvanecimiento */
+        }
+        img {
+            max-width: 80%; /* Asegura que la imagen no exceda el 80% del ancho de la pantalla */
+            height: auto; /* Mantiene la proporción de la imagen */
+            margin: 20px; /* Espacio alrededor de la imagen */
+        }
+        /* Media query para pantallas más grandes */
+        @media (min-width: 768px) {
+            img {
+                max-width: 50%; /* Reduce el tamaño de la imagen al 50% en pantallas grandes */
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="img/logo.png" alt="Logo de INNOVA NEXUS" class="animate__animated animate__fadeInDown" /> <!-- Agregar clases de animación -->
+
+    <script>
+        // Esperar 5 segundos antes de redirigir
+        setTimeout(function() {
+            // Desvanecer la página
+            document.body.style.opacity = 0; // Cambiar la opacidad a 0
+            // Redirigir después de la animación
+            setTimeout(function() {
+                window.location.href = "pag1.html"; // Cambia "nueva_pagina.html" por la URL de la página a la que deseas redirigir
+            }, 1000); // Esperar 1 segundo para que la animación de desvanecimiento se complete
+        }, 2000); // Esperar 5 segundos
+    </script>
+</body>
+</html>
