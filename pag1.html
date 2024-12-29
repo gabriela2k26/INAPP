@@ -140,26 +140,117 @@ body {
         .radio-tile-group .input-container .radio-button:checked + .radio-tile .svg-icon {
     fill: rgb(0, 0, 0); /* Cambia a negro cuando está seleccionado */
 }
+/* From Uiverse.io by cssbuttons-io */ 
+button {
+ position: relative;
+ display: inline-block;
+ cursor: pointer;
+ outline: none;
+ border: 0;
+ vertical-align: middle;
+ text-decoration: none;
+ background: transparent;
+ padding: 0;
+ font-size: inherit;
+ font-family: inherit;
+}
+
+button.learn-more {
+ width: 12rem;
+ height: auto;
+}
+
+button.learn-more .circle {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: relative;
+ display: block;
+ margin: 0;
+ width: 3rem;
+ height: 3rem;
+ background: #ffffff;
+ border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ margin: auto;
+ background: #000000;
+}
+
+button.learn-more .circle .icon.arrow {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ left: 0.625rem;
+ width: 1.125rem;
+ height: 0.125rem;
+ background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+ position: absolute;
+ content: "";
+ top: -0.29rem;
+ right: 0.0625rem;
+ width: 0.625rem;
+ height: 0.625rem;
+ border-top: 0.125rem solid #000000;
+ border-right: 0.125rem solid #000000;
+ transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ padding: 0.75rem 0;
+ margin: 0 0 0 1.85rem;
+ color: #ffffff;
+ font-weight: 700;
+ line-height: 1.6;
+ text-align: center;
+ text-transform: uppercase;
+}
+
+button:hover .circle {
+ width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+ background: #000000;
+ transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+ color: #000000;
+}
     </style>
-   <script>
-    // Objeto de traducciones
-    const translations = {
-        english: {
-            title: "WELCOME",
-            subtitle: "Select your language",
-            buttonText: ["English", "Spanish", "French"]
-        },
-        spanish: {
-            title: "BIENVENIDO",
-            subtitle: "Selecciona tu idioma",
-            buttonText: ["Inglés", "Español", "Francés"]
-        },
-        french: {
-            title: "BIENVENUE",
-            subtitle: "Sélectionnez votre langue",
-            buttonText: ["Anglais", "Espagnol", "Français"]
-        }
-    };
+    <script>
+      // Objeto de traducciones
+      const translations = {
+          english: {
+              title: "WELCOME",
+              subtitle: "Select your language",
+              buttonText: ["English", "Spanish", "French"],
+              continueText: "Continue"
+          },
+          spanish: {
+              title: "BIENVENIDO",
+              subtitle: "Selecciona tu idioma",
+              buttonText: ["Inglés", "Español", "Francés"],
+              continueText: "Continuar"
+          },
+          french: {
+              title: "BIENVENUE",
+              subtitle: "Sélectionnez votre langue",
+              buttonText: ["Anglais", "Espagnol", "Français"],
+              continueText: "Continuer"
+          }
+      };
 
     // Función para cambiar el idioma
     function changeLanguage(lang) {
@@ -172,6 +263,9 @@ body {
         buttonLabels[1].innerText = translations[lang].buttonText[1];
         buttonLabels[2].innerText = translations[lang].buttonText[2];
 
+          // Actualizar el texto del botón "Continue"
+          document.querySelector('.button-text').innerText = translations[lang].continueText;
+          
         // Desmarcar todos los botones
         const radioButtons = document.querySelectorAll('.radio-button');
         radioButtons.forEach(button => button.checked = false);
@@ -191,7 +285,7 @@ body {
             <input id="english" class="radio-button" type="radio" name="radio" onclick="changeLanguage('english')" checked>
             <div class="radio-tile">
                 <div class="icon walk-icon"></div>
-                <label for="english" class="radio-tile-label">English</label>
+                <label style="font-family: 'mifuente1';" for="english" class="radio-tile-label">English</label>
             </div>
         </div>
 
@@ -199,7 +293,7 @@ body {
             <input id="spanish" class="radio-button" type="radio" name="radio" onclick="changeLanguage('spanish')">
             <div class="radio-tile">
                 <div class="icon bike-icon"></div>
-                <label for="spanish" class="radio-tile-label">Spanish</label>
+                <label style="font-family: 'mifuente1';" for="spanish" class="radio-tile-label">Spanish</label>
             </div>
         </div>
 
@@ -207,10 +301,18 @@ body {
             <input id="french" class="radio-button" type="radio" name="radio" onclick="changeLanguage('french')">
             <div class="radio-tile">
                 <div class="icon car-icon"></div>
-                <label for="french" class="radio-tile-label">French</label>
+                <label style="font-family: 'mifuente1';" for="french" class="radio-tile-label">French</label>
             </div>
         </div>
     </div>
 </div>
+
+<button class="learn-more animate__animated animate__fadeIn">
+  <span class="circle" aria-hidden="true">
+  <span class="icon arrow"></span>
+  </span>
+  <span style="font-family: 'mifuente1';" class="button-text">Continue</span>
+</button>
+
 </body>
 </html>
