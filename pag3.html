@@ -96,7 +96,8 @@
   background: #252525;
   border: 2px solid #ffffff;
   border-radius: 40px;
-  
+  overflow: hidden; /* Evita que el contenido sobresalga */
+
 }
 
 .image {
@@ -125,9 +126,9 @@
 }
 
 .addtocart {
-    width: 100%; /* Asegúrate de que el botón ocupe el 100% del ancho de la tarjeta */
-    margin-top: 19px;
-    padding: 15px;
+    width: 100%;
+    height: 100%; /* Asegúrate de que el botón ocupe el 100% del ancho de la tarjeta */
+    padding: -10px; /* Ajusta el padding para que se vea bien */
     border: none;
     border-top: 2px solid #ffffff;
     background-color: #252525;
@@ -138,12 +139,26 @@
     border-radius: 0px 0px 38px 38px;
     transition: background-color 0.2s, color 0.2s; /* Transiciones para el hover */
     box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
+    margin-top: 25px; /* Asegura que el botón se mantenga en la parte inferior de la tarjeta */
+    min-height: 30px; /* Establece una altura mínima para el botón */
+ 
 }
 
 .addtocart:hover {
     background-color: #ffffff;
     border-top: 2px solid transparent;
     color: #252525;
+}
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 600px) {
+    .card {
+        max-width: 90%; /* Permite que la tarjeta ocupe el 90% del ancho en pantallas pequeñas */
+    }
+
+    .addtocart {
+        padding: 8px; /* Ajusta el padding para pantallas pequeñas */
+        font-size: 14px; /* Ajusta el tamaño de la fuente */
+    }
 }
     </style>
 
