@@ -56,7 +56,7 @@
 .card {
     flex: 0 0 230px; /* Mantiene el tamaño de las tarjetas */
     margin: 0 10px; /* Espaciado entre tarjetas */
-    transition: transform 0.5s ease; /* Transición suave al cambiar de tarjeta */
+    transition: transform 0.8s ease; /* Transición suave al cambiar de tarjeta */
     display: none; /* Oculta todas las tarjetas por defecto */
     flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
     align-items: center; /* Centra los elementos horizontalmente */
@@ -125,25 +125,25 @@
 }
 
 .addtocart {
-  width: 100%;
-  margin-top: 19px;
-  padding: 15px;
-  border: none;
-  border-top: 2px solid #ffffff;
-  background-color: #252525;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 15px;
-  font-family: 'mifuente1';
-  border-radius: 0px 0px 38px 38px;
-  transition: 0.2s;
+    width: 100%; /* Asegúrate de que el botón ocupe el 100% del ancho de la tarjeta */
+    margin-top: 19px;
+    padding: 15px;
+    border: none;
+    border-top: 2px solid #ffffff;
+    background-color: #252525;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'mifuente1';
+    border-radius: 0px 0px 38px 38px;
+    transition: background-color 0.2s, color 0.2s; /* Transiciones para el hover */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total */
 }
 
 .addtocart:hover {
-  background-color: #ffffff;
-  border-top: 2px solid transparent;
-  color: #252525;
-  position: relative;
+    background-color: #ffffff;
+    border-top: 2px solid transparent;
+    color: #252525;
 }
     </style>
 
@@ -213,7 +213,7 @@
       
       <div class="card">
           <div class="image">
-              <img src="img/laptop.svg" alt="logo" style="margin-top: 18px; margin-left: 75px;" height="80" width="auto" />
+              <img src="img/laptop.svg" alt="logo" style="margin-top: 20px; margin-left: 75px;" height="80" width="auto" />
           </div>
           <div class="productTitle">Web Development & Design</div>
           <button class="addtocart">See more</button>
@@ -223,13 +223,13 @@
           <div class="image">
               <img src="img/ds.svg" alt="logo" style="margin-top: 20px; margin-left: 75px;" height="80" width="auto" />
           </div>
-          <div class="productTitle" style="margin-top: 41.8px; margin-bottom: 10px;">Graphic Design</div>
+          <div class="productTitle" style="margin-top: 42px; margin-bottom: 10px;">Graphic Design</div>
           <button class="addtocart">See more</button>
       </div>
   
       <div class="card">
           <div class="image">
-              <img src="img/comm.svg" alt="logo" style="margin-top: 18px; margin-left: 75px;" height="80" width="auto" />
+              <img src="img/comm.svg" alt="logo" style="margin-top: 20px; margin-left: 75px;" height="80" width="auto" />
           </div>
           <div class="productTitle">Community Manager</div>
           <button class="addtocart">See more</button>
@@ -237,7 +237,7 @@
 
       <div class="card">
         <div class="image">
-            <img src="img/app.svg" alt="logo" style="margin-top: 18px; margin-left: 80px;" height="80" width="auto" />
+            <img src="img/app.svg" alt="logo" style="margin-top: 20px; margin-left: 80px;" height="80" width="auto" />
         </div>
         <div class="productTitle">Application Development</div>
         <button class="addtocart">See more</button>
