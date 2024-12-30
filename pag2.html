@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>INNOVA NEXUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @font-face {
+            font-family: 'mifuente1'; /* Nombre que usarás para referenciar la fuente */
+            src: url('fuentes/Montserrat-Regular.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+            font-weight: normal; /* Peso de la fuente */
+            font-style: normal; /* Estilo de la fuente */
+        }
+        body {
+            font-family: 'mifuente1';
+            background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 0; /* Para el efecto de fade in */
+            transition: opacity 0.5s ease; /* Transición de opacidad */
+            text-align: center; /* Centrar el texto */
+        }
+    </style>
+    <script>
+        // Objeto de traducciones para la página 2
+        const translations = {
+            english: {
+                title: "Want to take your business to the next level?"
+            },
+            spanish: {
+                title: "¿Quieres impulsar tu negocio al siguiente nivel?"
+            },
+            french: {
+                title: "Voulez-vous amener votre entreprise au niveau supérieur?"
+            }
+        };
+
+        // Función para cargar el idioma seleccionado
+        function loadLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || 'english'; // Idioma por defecto a inglés
+
+            // Cambiar el contenido según el idioma
+            document.querySelector('h1').innerText = translations[lang].title;
+
+            // Efecto de fade in
+            document.body.style.opacity = 1;
+        }
+
+        // Cargar el idioma al cargar la página
+        window.onload = loadLanguage;
+
+        function goToPage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedLanguage = urlParams.get('lang'); // Obtener el idioma de los parámetros de la URL
+            document.body.style.opacity = 0; // Hacer que el cuerpo se desvanezca
+            setTimeout(() => {
+                window.location.href = `pag3.html?lang=${selectedLanguage}`; // Redirigir con el idioma como parámetro
+            }, 500);
+        }
+    </script>
+</head>
+<body>
+    <h1 class="animate__animated animate__fadeInDown" onclick="goToPage()">Want to take your business to the next level?</h1>
+
+    <script>
+        // Esperar 5 segundos antes de redirigir
+        setTimeout(function() {
+            // Desvanecer la página
+            document.body.style.opacity = 0; // Cambiar la opacidad a 0
+            // Redirigir después de la animación
+            setTimeout(function() {
+                goToPage(); // Llamar a la función goToPage para redirigir
+            }, 1000); // Esperar 1 segundo para que la animación de desvanecimiento se complete
+        }, 3000); // Esperar 3 segundos
+    </script>
+</body>
+</html>

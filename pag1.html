@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-    <title>INNOVA NEXUS APP</title>
+    <title>INNOVA NEXUS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
       @font-face {
@@ -13,17 +13,18 @@
     font-style: normal; /* Estilo de la fuente */
 }
 body {
-    font-family: 'mifuente1';
-    background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
-    color: white;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
+            color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 1; /* Para el efecto de fade in */
+            transition: opacity 0.5s ease; /* Transición de opacidad */
+        }
 
 .radio-tile-group {
     display: flex;
@@ -265,7 +266,7 @@ button:hover .button-text {
 
           // Actualizar el texto del botón "Continue"
           document.querySelector('.button-text').innerText = translations[lang].continueText;
-          
+
         // Desmarcar todos los botones
         const radioButtons = document.querySelectorAll('.radio-button');
         radioButtons.forEach(button => button.checked = false);
@@ -273,6 +274,14 @@ button:hover .button-text {
         // Marcar el botón correspondiente
         document.getElementById(lang).checked = true;
     }
+ 
+        function goToPage() {
+    const selectedLanguage = document.querySelector('input[name="radio"]:checked').id; // Obtener el ID del idioma seleccionado
+    document.body.style.opacity = 0; // Hacer que el cuerpo se desvanezca
+    setTimeout(() => {
+        window.location.href = `pag2.html?lang=${selectedLanguage}`; // Redirigir con el idioma como parámetro
+    }, 500);
+}
 </script>
 </head>
 <body>
@@ -307,9 +316,9 @@ button:hover .button-text {
     </div>
 </div>
 
-<button class="learn-more animate__animated animate__fadeIn">
+<button class="learn-more animate__animated animate__fadeIn" onclick="goToPage()">
   <span class="circle" aria-hidden="true">
-  <span class="icon arrow"></span>
+      <span class="icon arrow"></span>
   </span>
   <span style="font-family: 'mifuente1';" class="button-text">Continue</span>
 </button>

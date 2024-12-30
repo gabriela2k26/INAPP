@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>INNOVA NEXUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @font-face {
+            font-family: 'mifuente1'; /* Nombre que usarás para referenciar la fuente */
+            src: url('fuentes/Montserrat-Regular.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+            font-weight: normal; /* Peso de la fuente */
+            font-style: normal; /* Estilo de la fuente */
+        }
+        body {
+            font-family: 'mifuente1';
+            background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 0; /* Para el efecto de fade in */
+            transition: opacity 0.5s ease; /* Transición de opacidad */
+            padding: 20px; /* Agregar padding para evitar que el contenido esté pegado a los bordes */
+            box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+        }
+        h1, p {
+            margin: 10px 0; /* Margen entre el título y el párrafo */
+            text-align: center; /* Centrar el texto */
+        }
+        /* From Uiverse.io by aadium */ 
+        .fade-in {
+    animation: fadeIn 0.5s forwards; /* Duración de la animación */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Comienza invisible */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+    }
+}
+
+.card-container {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    overflow: hidden; /* Oculta las tarjetas que no están visibles */
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    margin: 0 auto; /* Centra el contenedor en la página */
+}
+
+.card {
+    flex: 0 0 230px; /* Mantiene el tamaño de las tarjetas */
+    margin: 0 10px; /* Espaciado entre tarjetas */
+    transition: transform 0.5s ease; /* Transición suave al cambiar de tarjeta */
+    display: none; /* Oculta todas las tarjetas por defecto */
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.card.active {
+    display: flex; /* Muestra solo la tarjeta activa */
+    opacity: 1; /* Asegura que la tarjeta activa sea visible */
+}
+
+
+.navigation {
+    display: flex;
+    justify-content: center; /* Centra los botones de navegación */
+    margin-top: 20px;
+}
+
+.nav-button {
+    background-color: #252525;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 5px; /* Reduce el espaciado entre botones de navegación */
+    border-radius: 5px;
+    transition: 0.8s;
+}
+
+.nav-button:hover {
+    background-color: #ffffff;
+    color: #252525;
+}
+.card {
+  width: 230px;
+  height: 230px;
+  background: #252525;
+  border: 2px solid #ffffff;
+  border-radius: 40px;
+  
+}
+
+.image {
+  background-color: #252525;
+  border-radius: 2.5em 2.5em 0em 0em;
+  width: 100%;
+  height: 37%;
+  
+}
+
+.image svg {
+  width: 75%;
+  margin-top: -25px;
+  margin-left: 30px;
+}
+
+.productTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'mifuente1';
+  margin-top: 28px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.addtocart {
+  width: 100%;
+  margin-top: 19px;
+  padding: 15px;
+  border: none;
+  border-top: 2px solid #ffffff;
+  background-color: #252525;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: 'mifuente1';
+  border-radius: 0px 0px 38px 38px;
+  transition: 0.2s;
+}
+
+.addtocart:hover {
+  background-color: #ffffff;
+  border-top: 2px solid transparent;
+  color: #252525;
+}
+    </style>
+
+
+<script>
+  // Objeto de traducciones para la página 3
+  const translations = {
+      english: {
+          title: "What can we do for you?",
+          content: "We boost your brand with creativity and technology.",
+          webDevelopment: "Web Development & Design",
+          graphicDesign: "Graphic Design",
+          communityManager: "Community Manager",
+          appDevelopment: "Application Development",
+          seeMore: "See more"
+      },
+      spanish: {
+          title: "¿Qué podemos hacer por ti?",
+          content: "Impulsamos tu marca con creatividad y tecnología.",
+          webDevelopment: "Desarrollo y Diseño Web",
+          graphicDesign: "Diseño Gráfico",
+          communityManager: "Community Manager",
+          appDevelopment: "Desarrollo de Aplicaciones",
+          seeMore: "Ver más"
+      },
+      french: {
+          title: "Que pouvons-nous faire pour vous?",
+          content: "Nous renforçons votre marque avec créativité et technologie.",
+          webDevelopment: "Développement et Design Web",
+          graphicDesign: "Design Graphique",
+          communityManager: "Community Manager",
+          appDevelopment: "Développement d'Applications",
+          seeMore: "Voir plus"
+      }
+  };
+
+  // Función para cambiar el idioma
+  function changeLanguage(lang) {
+      document.querySelector('h1').innerText = translations[lang].title;
+      document.querySelector('p').innerText = translations[lang].content;
+      const productTitles = document.querySelectorAll('.productTitle');
+      productTitles[0].innerText = translations[lang].webDevelopment;
+      productTitles[1].innerText = translations[lang].graphicDesign;
+      productTitles[2].innerText = translations[lang].communityManager;
+      productTitles[3].innerText = translations[lang].appDevelopment;
+      const buttons = document.querySelectorAll('.addtocart');
+      buttons.forEach(button => {
+          button.innerText = translations[lang].seeMore;
+      });
+      document.body.style.opacity = 1; // Efecto de fade in
+  }
+
+  // Cargar el idioma al cargar la página
+  window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const lang = urlParams.get('lang') || 'english'; // Idioma por defecto a inglés
+      changeLanguage(lang);
+  };
+</script>
+</head>
+<body>
+    <h1 class="animate__animated animate__fadeInDown" style="margin-bottom: 30px;">What can we do for you?</h1>
+
+
+    
+    <div class="card-container">
+      
+      <div class="card">
+          <div class="image">
+              <img src="img/laptop.svg" alt="logo" style="margin-top: 20px; margin-left: 75px;" height="80" width="auto" />
+          </div>
+          <div class="productTitle">Web Development & Design</div>
+          <button class="addtocart">See more</button>
+      </div>
+  
+      <div class="card">
+          <div class="image">
+              <img src="img/ds.svg" alt="logo" style="margin-top: 20px; margin-left: 75px;" height="80" width="auto" />
+          </div>
+          <div class="productTitle" style="margin-top: 42px; margin-bottom: 10px;">Graphic Design</div>
+          <button class="addtocart">See more</button>
+      </div>
+  
+      <div class="card">
+          <div class="image">
+              <img src="img/comm.svg" alt="logo" style="margin-top: 20px; margin-left: 75px;" height="80" width="auto" />
+          </div>
+          <div class="productTitle">Community Manager</div>
+          <button class="addtocart">See more</button>
+      </div>
+
+      <div class="card">
+        <div class="image">
+            <img src="img/app.svg" alt="logo" style="margin-top: 20px; margin-left: 80px;" height="80" width="auto" />
+        </div>
+        <div class="productTitle">Application Development</div>
+        <button class="addtocart">See more</button>
+    </div>
+  
+    
+  </div>
+  
+  <div class="navigation">
+    <button id="prev" class="nav-button">❮</button>
+    <button id="next" class="nav-button">❯</button>
+</div>
+  </div>
+
+
+
+
+    <p class="animate__animated animate__fadeInDown" style="margin-top: 30px;">We boost your brand with creativity and technology.</p>
+    <script>
+    let currentIndex = 0;
+const cards = document.querySelectorAll('.card');
+const totalCards = cards.length;
+
+// Función para mostrar solo la tarjeta activa
+function showCard(index) {
+    cards.forEach((card, i) => {
+        card.classList.remove('active', 'fade-in'); // Elimina las clases 'active' y 'fade-in' de todas las tarjetas
+        if (i === index) {
+            card.classList.add('active'); // Agrega la clase 'active' solo a la tarjeta actual
+            setTimeout(() => {
+                card.classList.add('fade-in'); // Agrega la clase 'fade-in' después de un breve retraso
+            }, 10); // Retraso para permitir que la clase 'active' se aplique primero
+        }
+    });
+}
+
+// Inicializa mostrando la primera tarjeta
+showCard(currentIndex);
+
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalCards; // Ciclo a la siguiente tarjeta
+    showCard(currentIndex);
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards; // Ciclo a la tarjeta anterior
+    showCard(currentIndex);
+});
+        </script>
+        
+</body>
+</html>
