@@ -301,6 +301,21 @@ document.getElementById('prev').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + totalCards) % totalCards; // Ciclo a la tarjeta anterior
     showCard(currentIndex);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Selecciona el botón "See more" de la primera tarjeta
+    const webDesignButton = document.querySelector('.card:first-child .addtocart');
+
+    // Agrega un evento de clic al botón
+    webDesignButton.addEventListener('click', function() {
+        // Obtiene el idioma actual de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'english'; // Idioma por defecto: inglés
+
+        // Redirige a pag4.html con el mismo idioma
+        window.location.href = `pag4.html?lang=${lang}`;
+    });
+});
         </script>
         
 </body>
