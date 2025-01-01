@@ -312,8 +312,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
         const lang = urlParams.get('lang') || 'english'; // Idioma por defecto: inglés
 
-        // Redirige a pag4.html con el mismo idioma
-        window.location.href = `pag4.html?lang=${lang}`;
+        // Aplica la animación de fade out al cuerpo
+        document.body.classList.add('fade-in');
+
+        // Espera 1 segundo antes de redirigir
+        setTimeout(() => {
+            window.location.href = `pag4.html?lang=${lang}`;
+        }, 500); // 1000 ms = 1 segundo
     });
 });
         </script>
