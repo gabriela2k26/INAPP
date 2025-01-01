@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>INNOVA NEXUS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @font-face {
+            font-family: 'mifuente1'; /* Nombre que usarás para referenciar la fuente */
+            src: url('fuentes/Montserrat-Regular.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+            font-weight: normal; /* Peso de la fuente */
+            font-style: normal; /* Estilo de la fuente */
+        }
+        body {
+            font-family: 'mifuente1';
+            background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Usa min-height en lugar de height */
+            margin: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            text-align: center;
+            padding: 30px;
+            box-sizing: border-box; /* Incluye el padding en el cálculo del tamaño */
+        }
+        header img {
+            width: 50px; /* Ajusta el tamaño de la imagen */
+            margin-bottom: 10px; /* Espacio entre la imagen y el h1 */
+        }
+        /* From Uiverse.io by Jarol20cb */ 
+        .card {
+          
+       
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: -27px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+           
+          
+        }
+            
+        
+
+        .code-container {
+            background-color: #222;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.521);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: left; /* Alinear el texto a la izquierda */
+            width: 100%; /* Asegura que el contenedor ocupe todo el ancho de la card */
+        }
+.line {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 4px 0;
+  position: relative;
+}
+
+.code-comment {
+  color: #5c6370;
+}
+
+.code-keyword {
+  color: #61afef;
+}
+
+.code-function {
+  color: #61afef;
+}
+
+.code-variable {
+  color: #dcdcaa;
+}
+
+.code-string {
+  color: #ffffff;
+}
+
+.indent {
+  padding-left: 20px;
+}
+
+/* Animación */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.float-animation {
+  animation: float 2s ease-in-out infinite;
+}
+
+    </style>
+    <script>
+        // Función para mostrar el contenido al cargar la página
+        window.onload = function() {
+            document.body.style.opacity = 1; // Cambia la opacidad a 1 para mostrar el contenido
+        };
+    </script>
+</head>
+<body>
+<header>
+    <img src="img/logo2.png" alt="Logo de Innova Nexus" class="animate__animated animate__fadeInDown">
+    <h1 class="animate__animated animate__fadeInDown">Web Development & Design</h1>
+    <p class="animate__animated animate__fadeInDown">At Innova Nexus, we transform your ideas into impactful digital experiences. We are dedicated to creating innovative, functional, and visually appealing websites that capture the essence of your brand. We use the latest technologies and trends to ensure that your online presence not only stands out but also offers an exceptional user experience. From conceptualization to implementation, we work with you every step of the way to ensure your vision becomes a reality. Discover how we can take your business to the next level with customized and effective web solutions!</p>
+   
+<div id="card" class="card">
+  <div class="content">
+    <div class="card-body">
+      <div class="code-container float-animation">
+        <span class="line"><span class="code-comment">&lt;!DOCTYPE html&gt;</span></span>
+        <span class="line"><span class="code-keyword">&lt;html&gt;</span>
+        <span class="line"></span><span class="code-function">&lt;head&gt;</span></span>
+        <span class="line"><span class="code-function">ㅤㅤㅤ&lt;title&gt;<span class="code-string">Write Hello World&lt;</span><span class="code-function">title&gt;</span></span></span>
+        <span class="line"><span class="code-keyword">&lt;/head&gt;</span>
+        <span class="line"></span><span class="code-function">&lt;body&gt;</span></span>
+        <span class="line"><span class="code-function">ㅤㅤㅤ&lt;h1&gt;<span class="code-string">Hello, World!&lt;</span><span class="code-function">h1&gt;</span></span></span>
+        <span class="line"><span class="code-keyword">&lt;/body&gt;</span>
+        <span class="line"></span><span class="code-function">&lt;/html&gt;</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="animate__animated animate__fadeInDown">We use HTML, JavaScript, and CSS for web development. These technologies allow us to create robust and dynamic websites with responsive designs and interactive features. HTML provides the basic structure of web pages, JavaScript adds interactivity and advanced functionality, while CSS handles the style and visual presentation. By combining these tools, we can offer exceptional user experiences tailored to the specific needs of each project.</p>
+
+</header>
+</body>
+</html>

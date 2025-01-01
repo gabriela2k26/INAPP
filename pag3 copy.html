@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <title>INNOVA NEXUS APP - Page 3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        @font-face {
+            font-family: 'mifuente1'; /* Nombre que usarás para referenciar la fuente */
+            src: url('fuentes/Montserrat-Regular.ttf') format('truetype'); /* Ruta a tu archivo de fuente */
+            font-weight: normal; /* Peso de la fuente */
+            font-style: normal; /* Estilo de la fuente */
+        }
+        body {
+            font-family: 'mifuente1';
+            background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            opacity: 0; /* Para el efecto de fade in */
+            transition: opacity 0.5s ease; /* Transición de opacidad */
+        }
+        /* From Uiverse.io by paesjr */ 
+.e-card {
+  margin: 100px auto;
+  background: transparent;
+  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -50%;
+  background: linear-gradient(744deg, #005187, #002c49 60%, #00416c);
+}
+
+.icon {
+  width: 3em;
+  margin-top: -1em;
+  padding-bottom: 1em;
+}
+
+.infotop {
+    text-align: center;
+  font-size: 20px;
+  position: relative;
+  
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 100;
+  position: relative;
+  top: 1em;
+  text-transform: lowercase;
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+  top: 210px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 3000ms infinite linear;
+}
+
+.wave {
+  border-radius: 40%;
+  animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
+    <script>
+        // Objeto de traducciones para la página 3
+        const translations = {
+            english: {
+                title: "Welcome to Page 3",
+                content: "This is the third page in English."
+            },
+            spanish: {
+                title: "Bienvenido a la Página 3",
+                content: "Esta es la tercera página en español."
+            },
+            french: {
+                title: "Bienvenue sur la Page 3",
+                content: "Ceci est la troisième page en français."
+            }
+        };
+
+        // Función para cargar el idioma seleccionado
+        function loadLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang'); // Obtener el idioma de los parámetros de la URL
+
+            // Cambiar el contenido según el idioma
+            if (translations[lang]) {
+                document.querySelector('h1').innerText = translations[lang].title;
+                document.querySelector('p').innerText = translations[lang].content;
+            } else {
+                // Si no se encuentra el idioma, se puede establecer un valor por defecto
+                document.querySelector('h1').innerText = translations['english'].title; // Por defecto a inglés
+                document.querySelector('p').innerText = translations['english'].content; // Por defecto a inglés
+            }
+
+            // Efecto de fade in
+            document.body.style.opacity = 1;
+        }
+
+        // Cargar el idioma al cargar la página
+        window.onload = loadLanguage;
+    </script>
+</head>
+<body>
+    
+<div class="e-card playing">
+  <div class="image"></div>
+
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+  <div class="infotop">
+    <!-- Imagen PNG del sistema -->
+    <img src="img/logo2.png" alt="logo" style="margin-top: 50px ;" height="130" width="auto" text-align="center"; />
+</div>
+</div>
+
+    <h1 class="animate__animated animate__fadeInDown">Welcome to Page 3</h1>
+    <p class="animate__animated animate__fadeInDown" style="margin-top: -10px;">This is the third page in English.</p>
+</body>
+</html>
