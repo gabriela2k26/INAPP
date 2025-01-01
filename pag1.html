@@ -12,20 +12,22 @@
     font-weight: normal; /* Peso de la fuente */
     font-style: normal; /* Estilo de la fuente */
 }
-body {
-            font-family: Arial, sans-serif;
+        body {
+            font-family: 'mifuente1';
             background: radial-gradient(circle, #252525 0%, #1a1a1a 100%);
-            color: rgb(255, 255, 255);
+            color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Usa min-height en lugar de height */
             margin: 0;
             opacity: 1; /* Para el efecto de fade in */
             transition: opacity 0.5s ease; /* Transición de opacidad */
-            padding: 30px;
+            padding: 30px; /* Agregar padding para evitar que el contenido esté pegado a los bordes */
+            box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
         }
+
 
 .radio-tile-group {
     display: flex;

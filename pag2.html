@@ -20,12 +20,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh; /* Usa min-height en lugar de height */
             margin: 0;
             opacity: 0; /* Para el efecto de fade in */
             transition: opacity 0.5s ease; /* Transición de opacidad */
-            text-align: center; /* Centrar el texto */
-            padding: 30px;
+            padding: 30px; /* Agregar padding para evitar que el contenido esté pegado a los bordes */
+            box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
         }
     </style>
     <script>
